@@ -28,7 +28,7 @@
 <meta property="og:url" content="http://yoursite.com/2018/03/01/使用CursorLoader注意事项/index.html">
 <meta property="og:site_name" content="Damon Ren的博客">
 <meta property="og:description" content="已经实现将Bitmap对象保存成外部存储中的一个jpg格式的文件。但此时该文件只是保存在外部存储的一个目录中，必须进入其所在的目录中才可以看到。在系统图库，相册和其他应用中无法看到新建的图片文件。为了让其他应用能够知道图片文件被创建，必须通知MediaProvider服务将新建的文件添加到图片数据库中。 Android系统中常驻一个MediaProvider服务，对应的进程名为android.pr">
-<meta property="og:updated_time" content="2018-03-01T07:48:38.000Z">
+<meta property="og:updated_time" content="2018-03-01T10:00:39.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用CursorLoader注意事项">
 <meta name="twitter:description" content="已经实现将Bitmap对象保存成外部存储中的一个jpg格式的文件。但此时该文件只是保存在外部存储的一个目录中，必须进入其所在的目录中才可以看到。在系统图库，相册和其他应用中无法看到新建的图片文件。为了让其他应用能够知道图片文件被创建，必须通知MediaProvider服务将新建的文件添加到图片数据库中。 Android系统中常驻一个MediaProvider服务，对应的进程名为android.pr">
@@ -191,7 +191,7 @@ var themeMenus = {};
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>已经实现将Bitmap对象保存成外部存储中的一个jpg格式的文件。但此时该文件只是保存在外部存储的一个目录中，必须进入其所在的目录中才可以看到。在系统图库，相册和其他应用中无法看到新建的图片文件。为了让其他应用能够知道图片文件被创建，必须通知MediaProvider服务将新建的文件添加到图片数据库中。 Android系统中常驻一个MediaProvider服务，对应的进程名为android.process.media，此服务用来管理本机上的媒体文件，提供媒体管理服务。在系统开机或者收到外部存储的挂载消息后，MediaProvider会调用MediaScanner，MediaScanner会扫描外部存储中的所有文件，根据文件类型的后缀将文件信息保存到对应的数据库中，供其他APP使用。 MediaScannerReceiver是一个广播接收者，当它接收到特定的广播请求后，就会去扫描指定的文件，并根据文件信息将其添加到数据库中。当图片文件被创建后，就可以发送广播给MediaScannerReceiver，通知其扫描新建的图片文件。</p>
+        <p>已经实现将Bitmap对象保存成外部存储中的一个jpg格式的文件。但此时该文件只是保存在外部存储的一个目录中，必须进入其所在的目录中才可以看到。在系统图库，相册和其他应用中无法看到新建的图片文件。为了让其他应用能够知道图片文件被创建，必须通知MediaProvider服务将新建的文件添加到图片数据库中。 Android系统中常驻一个MediaProvider服务，对应的进程名为android.process.media，此服务用来管理本机上的媒体文件，提供媒体管理服务。<br><a id="more"></a><br>在系统开机或者收到外部存储的挂载消息后，MediaProvider会调用MediaScanner，MediaScanner会扫描外部存储中的所有文件，根据文件类型的后缀将文件信息保存到对应的数据库中，供其他APP使用。 MediaScannerReceiver是一个广播接收者，当它接收到特定的广播请求后，就会去扫描指定的文件，并根据文件信息将其添加到数据库中。当图片文件被创建后，就可以发送广播给MediaScannerReceiver，通知其扫描新建的图片文件。</p>
 <p>保存到本地的图片，如果没发通知给MediaScanner，没有将图片信息保存到系统数据库，使用CursorLoader是加载不到图片的</p>
 <p>使用方法： <a href="http://blog.csdn.net/yissan/article/details/51961707" target="_blank" rel="noopener">http://blog.csdn.net/yissan/article/details/51961707</a></p>
 
