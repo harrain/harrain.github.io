@@ -13,25 +13,25 @@
   <!-- PACE Progress Bar START -->
 
   
-  <title>library使用注意事项 | Damon Ren的博客</title>
+  <title>checkbox的使用 | Damon Ren的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="keywords" content="library" />
+  <meta name="keywords" content="CheckBoxOnCheckChangedListenerOnClickListener" />
   
   
   
   
-  <meta name="description" content="app依赖library，就可以使用它几乎所有东西。包括src,buildegradle,libs。。。一个as 的工程中，module不宜太多，否则会影响编译的速度，建议将不是经常变动的module打包成aar，主工程直接依赖aar可以大大提高编译的速度。">
-<meta name="keywords" content="library">
+  <meta name="description" content="CheckBox的OnCheckChangedListener和OnClickListener的区别CheckBox状态监听一般使用OnCheckChangedListener， CheckBox 和 Switch 的状态不一定通过点击改变，还可以通过其他的方式，比如直接使用方法setChecked，这样的话 OnClickListener就不能监听到，它状态的改变不是来自onClick事件，On">
+<meta name="keywords" content="CheckBox,OnCheckChangedListener,OnClickListener">
 <meta property="og:type" content="article">
-<meta property="og:title" content="library使用注意事项">
-<meta property="og:url" content="http://yoursite.com/2018/03/22/library使用注意事项/index.html">
+<meta property="og:title" content="checkbox的使用">
+<meta property="og:url" content="http://yoursite.com/2018/03/22/checkbox的使用/index.html">
 <meta property="og:site_name" content="Damon Ren的博客">
-<meta property="og:description" content="app依赖library，就可以使用它几乎所有东西。包括src,buildegradle,libs。。。一个as 的工程中，module不宜太多，否则会影响编译的速度，建议将不是经常变动的module打包成aar，主工程直接依赖aar可以大大提高编译的速度。">
-<meta property="og:updated_time" content="2018-03-22T01:55:21.000Z">
+<meta property="og:description" content="CheckBox的OnCheckChangedListener和OnClickListener的区别CheckBox状态监听一般使用OnCheckChangedListener， CheckBox 和 Switch 的状态不一定通过点击改变，还可以通过其他的方式，比如直接使用方法setChecked，这样的话 OnClickListener就不能监听到，它状态的改变不是来自onClick事件，On">
+<meta property="og:updated_time" content="2018-03-22T02:46:39.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="library使用注意事项">
-<meta name="twitter:description" content="app依赖library，就可以使用它几乎所有东西。包括src,buildegradle,libs。。。一个as 的工程中，module不宜太多，否则会影响编译的速度，建议将不是经常变动的module打包成aar，主工程直接依赖aar可以大大提高编译的速度。">
+<meta name="twitter:title" content="checkbox的使用">
+<meta name="twitter:description" content="CheckBox的OnCheckChangedListener和OnClickListener的区别CheckBox状态监听一般使用OnCheckChangedListener， CheckBox 和 Switch 的状态不一定通过点击改变，还可以通过其他的方式，比如直接使用方法setChecked，这样的话 OnClickListener就不能监听到，它状态的改变不是来自onClick事件，On">
   
     <link rel="alternate" href="/atom.xml" title="Damon Ren的博客" type="application/atom+xml">
   
@@ -163,7 +163,7 @@ var themeMenus = {};
             
       <div id="content" class="outer">
         
-          <section id="main" style="float:none;"><article id="post-library使用注意事项" style="width: 66%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+          <section id="main" style="float:none;"><article id="post-checkbox的使用" style="width: 66%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
     
     
@@ -171,7 +171,7 @@ var themeMenus = {};
         
   
     <h1 class="thumb" class="article-title" itemprop="name">
-      library使用注意事项
+      checkbox的使用
     </h1>
   
 
@@ -179,8 +179,8 @@ var themeMenus = {};
     
     <div class="article-meta">
       
-	Posted on <a href="/2018/03/22/library使用注意事项/" class="article-date">
-	  <time datetime="2018-03-22T01:34:30.000Z" itemprop="datePublished">March 22, 2018</time>
+	Posted on <a href="/2018/03/22/checkbox的使用/" class="article-date">
+	  <time datetime="2018-03-22T02:41:51.000Z" itemprop="datePublished">March 22, 2018</time>
 	</a>
 
       
@@ -191,25 +191,18 @@ var themeMenus = {};
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>app依赖library，就可以使用它几乎所有东西。包括src,buildegradle,libs。。。<br>一个as 的工程中，module不宜太多，否则会影响编译的速度，建议将不是经常变动的module打包成aar，主工程直接依赖aar可以大大提高编译的速度。<a id="more"></a></p>
-<hr>
-<p>当library的manifest里有权限的话，app的manifest可以不再重复添加；application类是必须在app的manifest注册。因为library是不能单独运行的<br>library里的四大组件可以在其manifest里注册，app里不用管<br>library的manifest里的Activity不能写<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;intent-filter&gt;</span><br><span class="line">    &lt;action android:name=&quot;android.intent.action.MAIN&quot; /&gt;</span><br><span class="line">    &lt;category android:name=&quot;android.intent.category.LAUNCHER&quot; /&gt;</span><br><span class="line">&lt;/intent-filter&gt;</span><br></pre></td></tr></table></figure></p>
-<p>这会使手机桌面多出现icon。如果librarys都写了这句，有几个library，桌面就多出几个icon</p>
-<hr>
-<p>library里不用重写Application。因为只有app的application集成library的Application，才会有用。<br>library清单文件里不能设置application，因为它是库，不是应用程序</p>
-<p>library代码里不能使用switch-case</p>
-<p>library用butterknife，@BindView(R2.id.xxx)  @OnClick(R2.id.xxx)<br>setContentView(R.id.xcxx)  findviewbyid(R.id.x)正常<br>butterknife的注解需要用R2，系统的仍用R</p>
+        <h4 id="CheckBox的OnCheckChangedListener和OnClickListener的区别"><a href="#CheckBox的OnCheckChangedListener和OnClickListener的区别" class="headerlink" title="CheckBox的OnCheckChangedListener和OnClickListener的区别"></a>CheckBox的OnCheckChangedListener和OnClickListener的区别</h4><p>CheckBox状态监听一般使用OnCheckChangedListener， CheckBox 和 Switch 的状态不一定通过点击改变，还可以通过其他的方式，比如直接使用方法setChecked，这样的话 OnClickListener就不能监听到，它状态的改变不是来自onClick事件，OnCheckChangedListener则是监听CheckBox的状态。</p>
 
       
     </div>
     <footer class="entry-meta entry-footer">
       
 	<span class="ico-folder"></span>
-    <a class="article-category-link" href="/categories/Android/">Android</a>, <a class="article-category-link" href="/categories/Android/知识点/">知识点</a>
+    <a class="article-category-link" href="/categories/Android/">Android</a>, <a class="article-category-link" href="/categories/Android/UI组件/">UI组件</a>, <a class="article-category-link" href="/categories/Android/UI组件/CheckBox/">CheckBox</a>
 
       
   <span class="ico-tags"></span>
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/library/">library</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CheckBox/">CheckBox</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OnCheckChangedListener/">OnCheckChangedListener</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OnClickListener/">OnClickListener</a></li></ul>
 
       
             
@@ -244,19 +237,19 @@ var themeMenus = {};
     
 <nav id="article-nav">
   
-    <a href="/2018/03/22/progressDialog与progressBar/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2018/03/22/EditText的使用/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          progressDialog与progressBar
+          EditText的使用
         
       </div>
     </a>
   
   
-    <a href="/2018/03/01/按微信时间规则格式化时间wechattimeformat/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2018/03/22/AlertDialog的使用/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">按微信时间规则格式化时间wechattimeformat</div>
+      <div class="article-nav-title">AlertDialog的使用</div>
     </a>
   
 </nav>
@@ -270,7 +263,7 @@ var themeMenus = {};
     <div id="toc" class="toc-article">
     <strong class="toc-title">Contents</strong>
     
-      <ol class="nav">None</ol>
+      <ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#CheckBox的OnCheckChangedListener和OnClickListener的区别"><span class="nav-number">1.</span> <span class="nav-text">CheckBox的OnCheckChangedListener和OnClickListener的区别</span></a></li></ol>
     
     </div>
   </aside>
