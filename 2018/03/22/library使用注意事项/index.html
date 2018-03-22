@@ -21,17 +21,17 @@
   
   
   
-  <meta name="description" content="app依赖library，就可以使用它几乎所有东西。包括src,buildegradle,libs。。。 一个as 的工程中，module不宜太多，否则会影响编译的速度，建议将不是经常变动的module打包成aar，主工程直接依赖aar可以大大提高编译的速度。">
+  <meta name="description" content="app依赖library，就可以使用它几乎所有东西。包括src,buildegradle,libs。。。一个as 的工程中，module不宜太多，否则会影响编译的速度，建议将不是经常变动的module打包成aar，主工程直接依赖aar可以大大提高编译的速度。">
 <meta name="keywords" content="library">
 <meta property="og:type" content="article">
 <meta property="og:title" content="library使用注意事项">
 <meta property="og:url" content="http://yoursite.com/2018/03/22/library使用注意事项/index.html">
 <meta property="og:site_name" content="Damon Ren的博客">
-<meta property="og:description" content="app依赖library，就可以使用它几乎所有东西。包括src,buildegradle,libs。。。 一个as 的工程中，module不宜太多，否则会影响编译的速度，建议将不是经常变动的module打包成aar，主工程直接依赖aar可以大大提高编译的速度。">
-<meta property="og:updated_time" content="2018-03-22T01:50:34.000Z">
+<meta property="og:description" content="app依赖library，就可以使用它几乎所有东西。包括src,buildegradle,libs。。。一个as 的工程中，module不宜太多，否则会影响编译的速度，建议将不是经常变动的module打包成aar，主工程直接依赖aar可以大大提高编译的速度。">
+<meta property="og:updated_time" content="2018-03-22T01:52:27.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="library使用注意事项">
-<meta name="twitter:description" content="app依赖library，就可以使用它几乎所有东西。包括src,buildegradle,libs。。。 一个as 的工程中，module不宜太多，否则会影响编译的速度，建议将不是经常变动的module打包成aar，主工程直接依赖aar可以大大提高编译的速度。">
+<meta name="twitter:description" content="app依赖library，就可以使用它几乎所有东西。包括src,buildegradle,libs。。。一个as 的工程中，module不宜太多，否则会影响编译的速度，建议将不是经常变动的module打包成aar，主工程直接依赖aar可以大大提高编译的速度。">
   
     <link rel="alternate" href="/atom.xml" title="Damon Ren的博客" type="application/atom+xml">
   
@@ -78,7 +78,7 @@ var themeMenus = {};
 
   themeMenus["/archives"] = "Archives"; 
 
-  themeMenus["/categories"] = "Kategorien"; 
+  themeMenus["/categories"] = "Categories"; 
 
   themeMenus["/tags"] = "Tags"; 
 
@@ -113,7 +113,7 @@ var themeMenus = {};
                     
                       <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/archives">Archives</a> </li>
                     
-                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/categories">Kategorien</a> </li>
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/categories">Categories</a> </li>
                     
                       <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/tags">Tags</a> </li>
                     
@@ -191,9 +191,12 @@ var themeMenus = {};
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>app依赖library，就可以使用它几乎所有东西。包括src,buildegradle,libs。。。</p>
-<h2 id="一个as-的工程中，module不宜太多，否则会影响编译的速度，建议将不是经常变动的module打包成aar，主工程直接依赖aar可以大大提高编译的速度。"><a href="#一个as-的工程中，module不宜太多，否则会影响编译的速度，建议将不是经常变动的module打包成aar，主工程直接依赖aar可以大大提高编译的速度。" class="headerlink" title="一个as 的工程中，module不宜太多，否则会影响编译的速度，建议将不是经常变动的module打包成aar，主工程直接依赖aar可以大大提高编译的速度。"></a>一个as 的工程中，module不宜太多，否则会影响编译的速度，建议将不是经常变动的module打包成aar，主工程直接依赖aar可以大大提高编译的速度。<a id="more"></a></h2><p>当library的manifest里有权限的话，app的manifest可以不再重复添加；application类是必须在app的manifest注册。因为library是不能单独运行的<br>library里的四大组件可以在其manifest里注册，app里不用管<br>library的manifest里的Activity不能写<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;intent-filter&gt;</span><br><span class="line">    &lt;action android:name=&quot;android.intent.action.MAIN&quot; /&gt;</span><br><span class="line">    &lt;category android:name=&quot;android.intent.category.LAUNCHER&quot; /&gt;</span><br><span class="line">&lt;/intent-filter&gt;</span><br></pre></td></tr></table></figure></p>
-<h2 id="这会使手机桌面多出现icon。如果librarys都写了这句，有几个library，桌面就多出几个icon"><a href="#这会使手机桌面多出现icon。如果librarys都写了这句，有几个library，桌面就多出几个icon" class="headerlink" title="这会使手机桌面多出现icon。如果librarys都写了这句，有几个library，桌面就多出几个icon"></a>这会使手机桌面多出现icon。如果librarys都写了这句，有几个library，桌面就多出几个icon</h2><p>library里不用重写Application。因为只有app的application集成library的Application，才会有用。<br>library清单文件里不能设置application，因为它是库，不是应用程序</p>
+        <p>app依赖library，就可以使用它几乎所有东西。包括src,buildegradle,libs。。。<br>一个as 的工程中，module不宜太多，否则会影响编译的速度，建议将不是经常变动的module打包成aar，主工程直接依赖aar可以大大提高编译的速度。<a id="more"></a></p>
+<hr>
+<p>当library的manifest里有权限的话，app的manifest可以不再重复添加；application类是必须在app的manifest注册。因为library是不能单独运行的<br>library里的四大组件可以在其manifest里注册，app里不用管<br>library的manifest里的Activity不能写<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;intent-filter&gt;</span><br><span class="line">    &lt;action android:name=&quot;android.intent.action.MAIN&quot; /&gt;</span><br><span class="line">    &lt;category android:name=&quot;android.intent.category.LAUNCHER&quot; /&gt;</span><br><span class="line">&lt;/intent-filter&gt;</span><br></pre></td></tr></table></figure></p>
+<p>这会使手机桌面多出现icon。如果librarys都写了这句，有几个library，桌面就多出几个icon</p>
+<hr>
+<p>library里不用重写Application。因为只有app的application集成library的Application，才会有用。<br>library清单文件里不能设置application，因为它是库，不是应用程序</p>
 <p>library代码里不能使用switch-case</p>
 <p>library用butterknife，@BindView(R2.id.xxx)  @OnClick(R2.id.xxx)<br>setContentView(R.id.xcxx)  findviewbyid(R.id.x)正常<br>butterknife的注解需要用R2，系统的仍用R</p>
 
@@ -243,7 +246,7 @@ var themeMenus = {};
   
   
     <a href="/2018/03/01/按微信时间规则格式化时间wechattimeformat/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Älter</strong>
+      <strong class="article-nav-caption">Older</strong>
       <div class="article-nav-title">按微信时间规则格式化时间wechattimeformat</div>
     </a>
   
@@ -258,7 +261,7 @@ var themeMenus = {};
     <div id="toc" class="toc-article">
     <strong class="toc-title">Contents</strong>
     
-      <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一个as-的工程中，module不宜太多，否则会影响编译的速度，建议将不是经常变动的module打包成aar，主工程直接依赖aar可以大大提高编译的速度。"><span class="nav-number">1.</span> <span class="nav-text">一个as 的工程中，module不宜太多，否则会影响编译的速度，建议将不是经常变动的module打包成aar，主工程直接依赖aar可以大大提高编译的速度。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#这会使手机桌面多出现icon。如果librarys都写了这句，有几个library，桌面就多出几个icon"><span class="nav-number">2.</span> <span class="nav-text">这会使手机桌面多出现icon。如果librarys都写了这句，有几个library，桌面就多出几个icon</span></a></li></ol>
+      <ol class="nav">None</ol>
     
     </div>
   </aside>
