@@ -28,7 +28,7 @@
 <meta property="og:url" content="http://yoursite.com/2018/03/23/SearchView的使用（二）/index.html">
 <meta property="og:site_name" content="Damon Ren的blog">
 <meta property="og:description" content="去掉默认下划线 改为圆角搜索框布局，注意SearchView不设置背景123456&amp;lt;SearchView        android:id=&amp;quot;@+id/sv_cus&amp;quot;        android:layout_width=&amp;quot;match_parent&amp;quot;        android:layout_height=&amp;quot;wrap_content&amp;q">
-<meta property="og:updated_time" content="2018-03-23T05:56:10.000Z">
+<meta property="og:updated_time" content="2018-03-23T05:59:30.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SearchView的使用(二)">
 <meta name="twitter:description" content="去掉默认下划线 改为圆角搜索框布局，注意SearchView不设置背景123456&amp;lt;SearchView        android:id=&amp;quot;@+id/sv_cus&amp;quot;        android:layout_width=&amp;quot;match_parent&amp;quot;        android:layout_height=&amp;quot;wrap_content&amp;q">
@@ -195,36 +195,8 @@ var themeMenus = {};
       
         <h4 id="去掉默认下划线-改为圆角搜索框"><a href="#去掉默认下划线-改为圆角搜索框" class="headerlink" title="去掉默认下划线 改为圆角搜索框"></a>去掉默认下划线 改为圆角搜索框</h4><p>布局，注意SearchView不设置背景<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;SearchView  </span><br><span class="line">      android:id=&quot;@+id/sv_cus&quot;  </span><br><span class="line">      android:layout_width=&quot;match_parent&quot;  </span><br><span class="line">      android:layout_height=&quot;wrap_content&quot;  </span><br><span class="line">      android:iconifiedByDefault=&quot;false&quot;  </span><br><span class="line">      android:queryHint=&quot;请输入姓名&quot; /&gt;</span><br></pre></td></tr></table></figure></p>
 <a id="more"></a>
-<p>反射修改SearchView里的下划线，SearchView是组合控件<br>`<br>if (svCustomer != null) {</p>
-<pre><code>    try {        //--拿到字节码
-        Class&lt;?&gt; argClass = svCustomer.getClass();
-        //--指定某个私有属性,mSearchPlate是搜索框父布局的名字
-        Field ownField = argClass.getDeclaredField(&quot;mSearchPlate&quot;);
-        //--暴力反射,只有暴力反射才能拿到私有属性
-        ownField.setAccessible(true);
-        View mView = (View) ownField.get(svCustomer);
-        //--设置背景
-        mView.setBackgroundResource(R.drawable.searchview_line);
-    }
-    catch (Exception e) {
-        e.printStackTrace();
-    }
-}
-</code></pre><p>`</p>
-<p>圆角样式<br><code></code></p>
-<shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="rectangle">  
-
-<pre><code>&lt;!-- 表示shape的四个角的角度。只适用于矩形shape，这里的角度是指圆角的程度 --&gt;  
-&lt;corners android:radius=&quot;50dp&quot; /&gt;  
-
-&lt;!-- 这个标签表示纯色填充，通过android:color即可指定shape中填充的颜色 --&gt;  
-&lt;solid android:color=&quot;@color/white&quot; /&gt;  
-
-&lt;!-- Shape的描边，下面指定了描边的宽度和描边的颜色 --&gt;  
-&lt;stroke  
-    android:width=&quot;1dp&quot;  
-    android:color=&quot;#d9d9d9&quot; /&gt;  
-</code></pre><p></p></shape><br><code></code><p></p>
+<p>反射修改SearchView里的下划线，SearchView是组合控件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">if (svCustomer != null) &#123;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">            try &#123;        //--拿到字节码</span><br><span class="line">                Class&lt;?&gt; argClass = svCustomer.getClass();</span><br><span class="line">                //--指定某个私有属性,mSearchPlate是搜索框父布局的名字</span><br><span class="line">                Field ownField = argClass.getDeclaredField(&quot;mSearchPlate&quot;);</span><br><span class="line">                //--暴力反射,只有暴力反射才能拿到私有属性</span><br><span class="line">                ownField.setAccessible(true);</span><br><span class="line">                View mView = (View) ownField.get(svCustomer);</span><br><span class="line">                //--设置背景</span><br><span class="line">                mView.setBackgroundResource(R.drawable.searchview_line);</span><br><span class="line">            &#125;</span><br><span class="line">            catch (Exception e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure></p>
+<p>圆角样式 searchview_line.xml<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;shape xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;  </span><br><span class="line">    android:shape=&quot;rectangle&quot; &gt;  </span><br><span class="line">  </span><br><span class="line">    &lt;!-- 表示shape的四个角的角度。只适用于矩形shape，这里的角度是指圆角的程度 --&gt;  </span><br><span class="line">    &lt;corners android:radius=&quot;50dp&quot; /&gt;  </span><br><span class="line">  </span><br><span class="line">    &lt;!-- 这个标签表示纯色填充，通过android:color即可指定shape中填充的颜色 --&gt;  </span><br><span class="line">    &lt;solid android:color=&quot;@color/white&quot; /&gt;  </span><br><span class="line">  </span><br><span class="line">    &lt;!-- Shape的描边，下面指定了描边的宽度和描边的颜色 --&gt;  </span><br><span class="line">    &lt;stroke  </span><br><span class="line">        android:width=&quot;1dp&quot;  </span><br><span class="line">        android:color=&quot;#d9d9d9&quot; /&gt;  </span><br><span class="line">  </span><br><span class="line">&lt;/shape&gt;</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -269,6 +241,15 @@ var themeMenus = {};
   
     
 <nav id="article-nav">
+  
+    <a href="/2018/03/23/Toolbar的使用/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Neuer</strong>
+      <div class="article-nav-title">
+        
+          Toolbar的使用
+        
+      </div>
+    </a>
   
   
     <a href="/2018/03/23/SearchView的使用（一）/" id="article-nav-older" class="article-nav-link-wrap">
