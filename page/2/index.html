@@ -13,7 +13,7 @@
   <!-- PACE Progress Bar START -->
 
   
-  <title>archiv: 2018 | Damon Ren的blog</title>
+  <title>Damon Ren的blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
   
@@ -22,7 +22,7 @@
   <meta name="description" content="人生第一快乐是做到自己认为自己做不到的事，人生第二快乐是做到别人认为自己做不到的事。">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Damon Ren的blog">
-<meta property="og:url" content="http://yoursite.com/archives/2018/index.html">
+<meta property="og:url" content="http://yoursite.com/page/2/index.html">
 <meta property="og:site_name" content="Damon Ren的blog">
 <meta property="og:description" content="人生第一快乐是做到自己认为自己做不到的事，人生第二快乐是做到别人认为自己做不到的事。">
 <meta name="twitter:card" content="summary">
@@ -162,235 +162,74 @@ var themeMenus = {};
       <div id="content" class="outer">
         
           <section id="main">
-  <div class="archives-tags-wrap"><blockquote><span>There are 11 posts in total till now.</span></blockquote>
-
-
-
-
-	<!-- 分页显示 -->
-	
-	
-		
-		
-		  
-		  
-		  <section class="archives-wrap">
-		    <div class="archive-year-wrap">
-		      <h1><a href="/archives/2018" class="archive-year">2018</a></h1>
-		    </div>
-		    <div class="archives">
-		
-		<article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-
-      <a href="/2018/03/23/SearchView的使用（二）/" class="archive-article-date">
-		  <time datetime="2018-03-23T02:45:35.000Z" itemprop="datePublished">Mar 23, 2018</time>
-	  </a>
-      
+  
+    <article id="post-使用CursorLoader注意事项"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
+    
+    
+      <header class="article-header">
+        
   
     <h1 class="thumb" itemprop="name">
-      <a class="archive-article-title" href="/2018/03/23/SearchView的使用（二）/">SearchView的使用(二)</a>
+      <a class="article-title" href="/2018/03/01/使用CursorLoader注意事项/">使用CursorLoader注意事项</a>
     </h1>
   
 
-    </header>
-  </div>
-</article>
-	
-		
-		
-		<article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-
-      <a href="/2018/03/23/SearchView的使用（一）/" class="archive-article-date">
-		  <time datetime="2018-03-23T02:42:56.000Z" itemprop="datePublished">Mar 23, 2018</time>
-	  </a>
+      </header>
+    
+    <div class="article-meta">
       
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="archive-article-title" href="/2018/03/23/SearchView的使用（一）/">SearchView的使用(一)</a>
-    </h1>
-  
+	Posted on <a href="/2018/03/01/使用CursorLoader注意事项/" class="article-date">
+	  <time datetime="2018-03-01T07:33:35.000Z" itemprop="datePublished">March 1, 2018</time>
+	</a>
 
-    </header>
-  </div>
-</article>
-	
-		
-		
-		<article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-
-      <a href="/2018/03/23/TabLayout用法（二）/" class="archive-article-date">
-		  <time datetime="2018-03-23T00:57:53.000Z" itemprop="datePublished">Mar 23, 2018</time>
-	  </a>
       
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="archive-article-title" href="/2018/03/23/TabLayout用法（二）/">TabLayout用法（二）</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-	
-		
-		
-		<article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-
-      <a href="/2018/03/22/TabLayout的用法（一）/" class="archive-article-date">
-		  <time datetime="2018-03-22T07:37:39.000Z" itemprop="datePublished">Mar 22, 2018</time>
-	  </a>
+    </div>
+    <div class="article-entry" itemprop="articleBody">
       
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="archive-article-title" href="/2018/03/22/TabLayout的用法（一）/">TabLayout的用法（一）</a>
-    </h1>
-  
+        
 
-    </header>
-  </div>
-</article>
-	
-		
-		
-		<article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
+          
+            <div class="entry-thumbnail">
+              <a href="/2018/03/01/使用CursorLoader注意事项/"><img width="250" height="175" src="http://lorempixel.com/500/350/city/5" class="attachment-thumb-featured size-thumb-featured wp-post-image" alt=""></a>
+            </div>
+            <div class="entry-summary">
+            已经实现将Bitmap对象保存成外部存储中的一个jpg格式的文件。但此时该文件只是保存在外部存储的一个目录中，必须进入其所在的目录中才可以看到。在系统图库，相册和其他应用中无法看到新建的图片文件。为了让其他应用能够知道图片文件被创建，必须通知MediaProvider服务将新建的文件添加到图片数据库中。 Android系统中常驻一个MediaProvider服务，对应的进程名为android...
+          
 
-      <a href="/2018/03/22/EditText的使用/" class="archive-article-date">
-		  <time datetime="2018-03-22T02:57:00.000Z" itemprop="datePublished">Mar 22, 2018</time>
-	  </a>
+        
+          <p class="article-more-link">
+            <a href="/2018/03/01/使用CursorLoader注意事项/#more">Continue Reading →</a>
+          </p>
+        </div>
       
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="archive-article-title" href="/2018/03/22/EditText的使用/">EditText的使用</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-	
-		
-		
-		<article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-
-      <a href="/2018/03/22/checkbox的使用/" class="archive-article-date">
-		  <time datetime="2018-03-22T02:41:51.000Z" itemprop="datePublished">Mar 22, 2018</time>
-	  </a>
+    </div>
+    <footer class="entry-meta entry-footer">
       
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="archive-article-title" href="/2018/03/22/checkbox的使用/">checkbox的使用</a>
-    </h1>
-  
+	<span class="ico-folder"></span>
+    <a class="article-category-link" href="/categories/Android/">Android</a>, <a class="article-category-link" href="/categories/Android/功能组件/">功能组件</a>, <a class="article-category-link" href="/categories/Android/功能组件/图片加载器/">图片加载器</a>
 
-    </header>
-  </div>
-</article>
-	
-		
-		
-		<article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-
-      <a href="/2018/03/22/AlertDialog的使用/" class="archive-article-date">
-		  <time datetime="2018-03-22T02:29:54.000Z" itemprop="datePublished">Mar 22, 2018</time>
-	  </a>
       
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="archive-article-title" href="/2018/03/22/AlertDialog的使用/">AlertDialog的使用</a>
-    </h1>
-  
+  <span class="ico-tags"></span>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CursorLoader/">CursorLoader</a></li></ul>
 
-    </header>
-  </div>
-</article>
-	
-		
-		
-		<article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-
-      <a href="/2018/03/22/progressDialog与progressBar/" class="archive-article-date">
-		  <time datetime="2018-03-22T02:17:19.000Z" itemprop="datePublished">Mar 22, 2018</time>
-	  </a>
       
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="archive-article-title" href="/2018/03/22/progressDialog与progressBar/">progressDialog与progressBar</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-	
-		
-		
-		<article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-
-      <a href="/2018/03/22/library使用注意事项/" class="archive-article-date">
-		  <time datetime="2018-03-22T01:34:30.000Z" itemprop="datePublished">Mar 22, 2018</time>
-	  </a>
+            
       
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="archive-article-title" href="/2018/03/22/library使用注意事项/">library使用注意事项</a>
-    </h1>
-  
-
-    </header>
+    </footer>
   </div>
-</article>
-	
-		
-		
-		<article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-
-      <a href="/2018/03/01/按微信时间规则格式化时间wechattimeformat/" class="archive-article-date">
-		  <time datetime="2018-03-01T07:49:37.000Z" itemprop="datePublished">Mar 01, 2018</time>
-	  </a>
-      
   
-    <h1 class="thumb" itemprop="name">
-      <a class="archive-article-title" href="/2018/03/01/按微信时间规则格式化时间wechattimeformat/">按微信时间规则格式化时间wechattimeformat</a>
-    </h1>
+</article>
+
+<!-- Table of Contents -->
+
   
 
-    </header>
-  </div>
-</article>
-	
-	
-		</div></section>
-	
 
-	<!-- 页数指示器 -->
-	
-	  <nav id="page-nav">
-	    
-	    <span class="page-number current">1</span><a class="page-number" href="/archives/2018/page/2/">2</a><a class="extend next" rel="next" href="/archives/2018/page/2/">weiter</a>
-	  </nav>
-	
-
-
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/">zurück</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+  </nav>
 
 </section>
           <aside id="sidebar">
